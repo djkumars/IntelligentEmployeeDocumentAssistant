@@ -1,0 +1,3 @@
+window.employeeDocumentAssistantConfig = {
+  apiBaseUrl: ''
+};

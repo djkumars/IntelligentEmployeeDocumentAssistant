@@ -1,0 +1,22 @@
+name: intelligent-employee-document-assistant
+metadata:
+  template: intelligent-employee-document-assistant
+
+services:
+  web:
+    project: .
+    language: js
+    host: staticwebapp
+    dist: dist/employee-document-assistant/browser
+  api:
+    project: ./api/EmployeeDocumentAssistant.Api
+    language: dotnet
+    host: appservice
+
+hooks:
+  prepackage:
+    shell: sh
+    run: node ./scripts/configure-frontend.mjs
+  postpackage:
+    shell: sh
+    run: node ./scripts/configure-frontend.mjs --reset
